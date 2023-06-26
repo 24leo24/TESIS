@@ -1,0 +1,4 @@
+Contenido del encabezado2
+Contenido de la secci�n
+Contenido de la l�nea
+Contenido ingresado por el usuario2
