@@ -9,6 +9,7 @@ class mainapp(tk.Tk):
         super().__init__()
 
         self.title("Mi Aplicación")
+        self.iconbitmap('img/UVALPO_ESC.ico')
         self.configure(bg="#CCE6FF")  # Fondo celeste claro
         self.resizable(False, False)  # Ventana no redimensionable
 

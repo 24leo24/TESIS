@@ -1,52 +1,67 @@
 import tkinter as tk
-from usuario.gui_app import Frame, barra_menu
-from usuario.crear_contenedor import Frame2 
-#from usuario.crear_contenedor import Frame as Frame2
+from usuario.gui_app import Frame
+from usuario.crear_contenedor import Frame2
+from usuario.bibloteca import Frame3
+from usuario.editar import Frame4
 
 
+class mainapp(tk.Tk):
+    def __init__(self):
+        super().__init__()
 
-def switch_vista(self, vista_class):
-    if self.vista_actual is not None:
-        self.vista_actual.pack_forget()
+        self.title("HERRAMIENTA DE APOYO")
+        self.iconbitmap('img/UVALPO_ESC.ico')
+        #self.resizable(False, False)  # Ventana no redimensionable
 
-    if vista_class == Frame:
-        self.vista_actual = Frame(self, mostrar_vista2=self.mostrar_vista2)
-    if vista_class == Frame2:
-        self.vista_actual = Frame2(self, mostrar_vista1=self.mostrar_vista1)
+        # Dimensiones de la pantalla
+        screen_width = self.winfo_screenwidth()
+        screen_height = self.winfo_screenheight()
 
-    self.vista_actual.pack()
+        # Dimensiones de la ventana
+        window_width = int(screen_width * 0.4)  # 60% del ancho de la pantalla
+        window_height = int(screen_height * 0.38)  # 60% de la altura de la pantalla
 
-def mostrar_vista2(self):
-    self.switch_vista(Frame2)
+        # Posición para centrar la ventana en la pantalla
+        window_x = (screen_width - window_width) // 2
+        window_y = (screen_height - window_height) // 2
 
-def mostrar_vista1(self):
-    self.switch_vista(Frame)
+        # Configuración de la ventana
+        self.geometry(f"{window_width}x{window_height}+{window_x}+{window_y}")
 
+        self.vista_actual = None
+        self.switch_vista(Frame)
 
+    def switch_vista(self, vista_class):
+        if self.vista_actual is not None:
+            self.vista_actual.pack_forget()
 
-def main():
+        if vista_class == Frame:
+            self.vista_actual = Frame(self, mostrar_vista2=self.mostrar_vista2, mostrar_vista3=self.mostrar_vista3, mostrar_vista4=self.mostrar_vista4)
+        
+        if vista_class == Frame2:
+            self.vista_actual = Frame2(self, mostrar_vista1=self.mostrar_vista1)
 
-    root = tk.Tk()
-    root.title('HERRAMIENTA DE APOYO')
-    root.iconbitmap('img/UVALPO_ESC.ico')
-    root.resizable(0,0) 
-    root.vista_actual = None
-    root.switch_vista(Frame)
-    barra_menu(root)
-    #crear_contenedor=crear_contenedor.ventana_secundaria(root, mostrar_principal)
+        if vista_class == Frame3:
+            self.vista_actual = Frame3(self, mostrar_vista1=self.mostrar_vista1)
 
+        if vista_class == Frame4:
+            self.vista_actual = Frame4(self, mostrar_vista1=self.mostrar_vista1)
 
-    #app = Frame(root=root) 
-    #app2 = Frame2(root=root) 
+        self.vista_actual.pack()
 
-    #app2.mainloop()
-    root.mainloop()
+    def mostrar_vista1(self):
+        self.switch_vista(Frame)
 
+    def mostrar_vista2(self):
+        self.switch_vista(Frame2)
 
+    def mostrar_vista3(self):
+        self.switch_vista(Frame3)
 
-    
-    
+    def mostrar_vista4(self):
+        self.switch_vista(Frame4)
+
 
 if __name__ == '__main__':
-    main()
-    
+    app = mainapp()
+    app.mainloop()
