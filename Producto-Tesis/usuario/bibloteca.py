@@ -10,7 +10,7 @@ class Frame3(tk.Frame):
         self.mostrar_vista1 = mostrar_vista1
        
 
-       #esto
+        #BOTONES DE LA VISTAA
         self.boton_nuevo = tk.Button(self, text="VOLVER")
         self.boton_nuevo.config(width=12, font=('Arial', 12, 'bold'),fg = '#DAD5D6', bg='#FF3333', cursor='hand2', activebackground='#FF6B33', command=self.mostrar_vista1)
         self.boton_nuevo.grid(row=3, column=2, padx=0, pady= 100)
@@ -23,19 +23,12 @@ class Frame3(tk.Frame):
     def crear_archivos(self):
         # Archivo 1
         nombre_archivo1 = "Contenedor con Apache2"
-        contenido_archivo1 = """FROM debian
-MAINTAINER José Domingo Muñoz "josedom24@gmail.com"
-
-RUN apt-get update && apt-get install -y apache2 && apt-get clean && rm -rf /var/lib/apt/lists/*
-
-ENV APACHE_RUN_USER www-data
-ENV APACHE_RUN_GROUP www-data
-ENV APACHE_LOG_DIR /var/log/apache2
-
-EXPOSE 80
-ADD ["index.html","/var/www/html/"]
-
-ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]"""
+        contenido_archivo1 = """FROM ubuntu:latest
+MAINTAINER EUGENIO eucm2g@gmail.com
+RUN apt-get update
+RUN apt-get -y install apache2
+expose 80
+CMD /usr/sbin/apache2ctl -D FOREGROUND"""
 
         marco_archivo1 = tk.Frame(self.marco_archivos)
         marco_archivo1.pack(padx=100, pady=20)
@@ -109,7 +102,7 @@ CMD [ "npm", "start" ]"""
         boton_crear_archivo3.pack(side="right")
 
     def exportar_archivo(self, contenido, nombre):
-        archivo = filedialog.asksaveasfile(mode='w', defaultextension=".txt", initialfile="Dockerfile", filetypes=[("Archivo de texto", "*.txt")])
+        archivo = filedialog.asksaveasfile(mode='w', defaultextension=".txt", initialfile="Dockerfile", filetypes=[("", "*.")])
         if archivo is not None:
             archivo.write(contenido)
             archivo.close()
