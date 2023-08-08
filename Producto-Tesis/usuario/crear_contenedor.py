@@ -8,7 +8,7 @@ class Frame2(tk.Frame):
 
         self.mostrar_vista1 = mostrar_vista1
        
-        #BOTONES DE LA VISTA
+        #BOTONES DE LA VISTA CREAR CONTENEDOR
         self.boton_nuevo = tk.Button(self, text="VOLVER")
         self.boton_nuevo.config(width=12, font=('Arial', 12, 'bold'),fg = '#DAD5D6', bg='#FF3333', cursor='hand2', activebackground='#FF6B33', command=self.mostrar_vista1)
         self.boton_nuevo.grid(row=3, column=2, padx=0, pady= 230)
