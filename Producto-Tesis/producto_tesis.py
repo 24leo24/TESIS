@@ -1,8 +1,9 @@
 import tkinter as tk
 from usuario.gui_app import Frame
 from usuario.crear_contenedor import Frame2
-from usuario.bibloteca import Frame3
+from usuario.ejecutar_contenedor import Frame6
 from usuario.editar import Frame4
+from usuario.bibloteca2 import Frame5
 
 
 class mainapp(tk.Tk):
@@ -11,15 +12,15 @@ class mainapp(tk.Tk):
 
         self.title("HERRAMIENTA DE APOYO")
         self.iconbitmap('img/UVALPO_ESC.ico')
-        #self.resizable(False, False)  # Ventana no redimensionable
+        self.resizable(False, False)  # Ventana no redimensionable
 
         # Dimensiones de la pantalla
         screen_width = self.winfo_screenwidth()
         screen_height = self.winfo_screenheight()
 
         # Dimensiones de la ventana
-        window_width = int(screen_width * 0.4)  # 60% del ancho de la pantalla
-        window_height = int(screen_height * 0.38)  # 60% de la altura de la pantalla
+        window_width = int(screen_width * 0.48)  # 60% del ancho de la pantalla
+        window_height = int(screen_height * 0.53)  # 60% de la altura de la pantalla
 
         # Posición para centrar la ventana en la pantalla
         window_x = (screen_width - window_width) // 2
@@ -36,16 +37,19 @@ class mainapp(tk.Tk):
             self.vista_actual.pack_forget()
 
         if vista_class == Frame:
-            self.vista_actual = Frame(self, mostrar_vista2=self.mostrar_vista2, mostrar_vista3=self.mostrar_vista3, mostrar_vista4=self.mostrar_vista4)
+            self.vista_actual = Frame(self, mostrar_vista2=self.mostrar_vista2, mostrar_vista3=self.mostrar_vista3, mostrar_vista4=self.mostrar_vista4,mostrar_vista5=self.mostrar_vista5)
         
         if vista_class == Frame2:
             self.vista_actual = Frame2(self, mostrar_vista1=self.mostrar_vista1)
 
-        if vista_class == Frame3:
-            self.vista_actual = Frame3(self, mostrar_vista1=self.mostrar_vista1)
+        if vista_class == Frame5:
+            self.vista_actual = Frame5(self, mostrar_vista1=self.mostrar_vista1)
 
         if vista_class == Frame4:
             self.vista_actual = Frame4(self, mostrar_vista1=self.mostrar_vista1)
+
+        if vista_class == Frame6:
+            self.vista_actual = Frame6(self, mostrar_vista1=self.mostrar_vista1)
 
         self.vista_actual.pack()
 
@@ -56,10 +60,13 @@ class mainapp(tk.Tk):
         self.switch_vista(Frame2)
 
     def mostrar_vista3(self):
-        self.switch_vista(Frame3)
+        self.switch_vista(Frame5)
 
     def mostrar_vista4(self):
         self.switch_vista(Frame4)
+
+    def mostrar_vista5(self):
+        self.switch_vista(Frame6)
 
 
 if __name__ == '__main__':
