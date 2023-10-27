@@ -1,22 +1,18 @@
+
+"""
+Dentro de este módulo se genera toda la logica para poder editar los contenedores.
+"""
+
 import tkinter as tk
-from tkinter import messagebox
+#from tkinter import messagebox
 from usuario.conexion_sqlite import Comunicacion
 from usuario.ventana_modal import VentanaModal
 
 class Frame4(tk.Frame):
     def __init__(self, master=None, mostrar_vista1=None):
         super().__init__(master)
-        
 
         self.mostrar_vista1 = mostrar_vista1
-       
-        #self.boton_volver = tk.Button(self, text="VOLVER")
-        #self.boton_volver.config(width=12, font=('Arial', 12, 'bold'), fg='#DAD5D6', bg='#FF3333', cursor='hand2',
-        #                         activebackground='#FF6B33', command=self.mostrar_vista1)
-        #self.boton_volver.grid(row=3, column=2, padx=0, pady=230)
-
-        #etiqueta_titulo = tk.Label(self, text="EDITAR CONTENEDORES", font=("Arial", 16, "bold"))
-        #etiqueta_titulo.grid(row=2, column=2, padx=0, pady=50)
 
         etiqueta_id = tk.Label(self, text="ID:")
         etiqueta_id.grid(row=3, column=1, padx=10, pady=10)
@@ -25,7 +21,8 @@ class Frame4(tk.Frame):
         self.entry_id.grid(row=3, column=2, padx=10, pady=10)
 
         boton_buscar = tk.Button(self, text="Buscar", command=self.buscar_registro)
-        boton_buscar.config(width=12, font=('Arial', 12, 'bold'),fg = '#DAD5D6', bg='#3371FF', cursor='hand2', activebackground='#33ACFF')
+        boton_buscar.config(width=12, font=('Arial', 12, 'bold'),
+        fg = '#DAD5D6', bg='#3371FF', cursor='hand2', activebackground='#33ACFF')
         boton_buscar.grid(row=3, column=3, padx=10, pady=10)
 
         etiqueta_nombre = tk.Label(self, text="Nombre:")
@@ -53,11 +50,14 @@ class Frame4(tk.Frame):
         self.entry_contenido.grid(row=7, column=2, padx=10, pady=10)
 
         boton_guardar = tk.Button(self, text="Guardar", command=self.guardar_registro)
-        boton_guardar.config(width=12, font=('Arial', 12, 'bold'),fg = '#DAD5D6', bg='#229805', cursor='hand2', activebackground='#34CD0E')
+        boton_guardar.config(width=12, font=('Arial', 12, 'bold'),fg = '#DAD5D6',
+        bg='#229805', cursor='hand2', activebackground='#34CD0E')
         boton_guardar.grid(row=8, column=2, padx=10, pady=10)
 
         boton_nuevo = tk.Button(self, text="VOLVER")
-        boton_nuevo.config(width=12, font=('Arial', 12, 'bold'),fg = '#DAD5D6', bg='#FF3333', cursor='hand2', activebackground='#FF6B33', command=self.mostrar_vista1)
+        boton_nuevo.config(width=12, font=('Arial', 12, 'bold'),
+        fg='#DAD5D6',bg='#FF3333',cursor='hand2',
+        activebackground='#FF6B33',command=self.mostrar_vista1)
         boton_nuevo.grid(row=9, column=2, padx=0, pady=30)
 
     def buscar_registro(self):
@@ -99,4 +99,4 @@ class Frame4(tk.Frame):
             except ValueError:
                 VentanaModal(self,"ERROR", "Por favor, ingrese un ID válido.")
         else:
-            VentanaModal(self,"ERROR", "Por favor, rellene todos los campos.")
+            VentanaModal(self,"ERROR", "Por favor, ingrese un ID.")

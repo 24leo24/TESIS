@@ -1,18 +1,51 @@
 
 import tkinter as tk
-from tkinter import filedialog
-from tkinter import Scrollbar
-from tkinter import PhotoImage
-from tkinter import ttk
+import os
+#from tkinter import filedialog
+#from tkinter import Scrollbar
+#from tkinter import PhotoImage
+#from tkinter import ttk
 from tkinter import Menu , END
-
-
-
 
 class Frame6(tk.Frame):
     def __init__(self, master=None, mostrar_vista1=None):
         super().__init__(master)
-        
+
+        # Obtiene la ruta del directorio actual del script
+        script_dir = os.path.dirname(__file__)
+
+         # Retrocede un nivel para acceder a la carpeta principal
+        main_dir1 = os.path.dirname(script_dir)
+
+        # Construye la ruta a la imagen usando el directorio actual
+        imagen_path1 = os.path.join(main_dir1, 'img', 'img1.gif')
+        imagen_path2 = os.path.join(main_dir1, 'img', 'imagen 2.gif')
+        imagen_path3 = os.path.join(main_dir1, 'img', 'imagen 3.gif')
+        imagen_path4 = os.path.join(main_dir1, 'img', 'img4.gif')
+        imagen_path5 = os.path.join(main_dir1, 'img', 'img5.gif')
+        imagen_path6 = os.path.join(main_dir1, 'img', 'imagen 6.gif')
+        imagen_path7 = os.path.join(main_dir1, 'img', 'img7.gif')
+        imagen_path8 = os.path.join(main_dir1, 'img', 'img8.gif')
+        imagen_path9 = os.path.join(main_dir1, 'img', 'img9.gif')
+        imagen_path10 = os.path.join(main_dir1, 'img', 'img10.gif')
+        imagen_path11 = os.path.join(main_dir1, 'img', 'img11.gif')
+        imagen_path12 = os.path.join(main_dir1, 'img', 'img12.gif')
+
+        #imagen = tk.PhotoImage(file=imagen_path3)
+        #imagen = tk.PhotoImage(file=imagen_path4)
+        #imagen = tk.PhotoImage(file=imagen_path5)
+        #imagen = tk.PhotoImage(file=imagen_path6)
+        #imagen = tk.PhotoImage(file=imagen_path7)
+        #imagen = tk.PhotoImage(file=imagen_path8)
+        #imagen = tk.PhotoImage(file=imagen_path9)
+        #imagen = tk.PhotoImage(file=imagen_path10)
+        #imagen = tk.PhotoImage(file=imagen_path11)
+        #imagen = tk.PhotoImage(file=imagen_path12)
+
+
+
+
+
 
         self.mostrar_vista1 = mostrar_vista1
 
@@ -47,7 +80,7 @@ class Frame6(tk.Frame):
         etiqueta_instruccion2 = tk.Label(marco, text="A continuación, se entrega un ejemplo donde en una primera instancia se crea nueva carpeta con el nombre “Carpeta_Prueba”  \n la cual estará ubicada en el escritorio. ")
         etiqueta_instruccion2.grid(row=2, column=0, sticky="w")
 
-        imagen = tk.PhotoImage(file="img/img1.gif")
+        imagen = tk.PhotoImage(file=imagen_path1)
         etiqueta_imagen = tk.Label(marco, image=imagen)
         etiqueta_imagen.photo = imagen  # Importante para evitar que la imagen se elimine
         etiqueta_imagen.grid(row=3, column=0, pady=10)
@@ -65,7 +98,7 @@ class Frame6(tk.Frame):
         etiqueta_instruccion5 = tk.Label(marco, text="Dentro de la “Biblioteca de contenedores”  seleccionamos el Dockerfile a exportar, en este caso de ejemplo, se seleccionó un Dockerfile el cual \n contiene una imagen con “Apache2”, donde posteriormente será usada para crear un contenedor")
         etiqueta_instruccion5.grid(row=5, column=0,sticky="w")
 
-        imagen = tk.PhotoImage(file="img/imagen 2.gif")
+        imagen = tk.PhotoImage(file=imagen_path2)
         etiqueta_imagen = tk.Label(marco, image=imagen)
         etiqueta_imagen.photo = imagen  # Importante para evitar que la imagen se elimine
         etiqueta_imagen.grid(row=6, column=0, pady=10)
@@ -73,7 +106,7 @@ class Frame6(tk.Frame):
         etiqueta_instruccion6 = tk.Label(marco, text="Ya al momento de exportar el Dockerfile, se selecciona la carpeta creada, dejando el archivo Dockerfile guardado dentro de Carpeta_Prueba")
         etiqueta_instruccion6.grid(row=7, column=0, sticky="w")
 
-        imagen = tk.PhotoImage(file="img/imagen 3.gif")
+        imagen = tk.PhotoImage(file=imagen_path3)
         etiqueta_imagen = tk.Label(marco, image=imagen)
         etiqueta_imagen.photo = imagen  # Importante para evitar que la imagen se elimine
         etiqueta_imagen.grid(row=8, column=0, pady=10)
@@ -84,7 +117,7 @@ class Frame6(tk.Frame):
         etiqueta_instruccion8 = tk.Label(marco, text="Se guarda el Dockerfile dentro de la Carpeta_Prueba y procedemos a buscar Windows PowerShell")
         etiqueta_instruccion8.grid(row=10, column=0, sticky="w")
 
-        imagen = tk.PhotoImage(file="img/img4.gif")
+        imagen = tk.PhotoImage(file=imagen_path4)
         etiqueta_imagen = tk.Label(marco, image=imagen)
         etiqueta_imagen.photo = imagen  # Importante para evitar que la imagen se elimine
         etiqueta_imagen.grid(row=11, column=0, pady=10)
@@ -92,7 +125,7 @@ class Frame6(tk.Frame):
         etiqueta_instruccion4 = tk.Label(marco, text="Dentro de la barra de búsqueda de Windows ingresamos Windows PowerShell")
         etiqueta_instruccion4.grid(row=12, column=0, sticky="w")
 
-        imagen = tk.PhotoImage(file="img/img5.gif")
+        imagen = tk.PhotoImage(file=imagen_path5)
         etiqueta_imagen = tk.Label(marco, image=imagen)
         etiqueta_imagen.photo = imagen  # Importante para evitar que la imagen se elimine
         etiqueta_imagen.grid(row=13, column=0, pady=10)
@@ -100,7 +133,7 @@ class Frame6(tk.Frame):
         etiqueta_instruccion4 = tk.Label(marco, text="Donde luego la ejecutamos y ya esta lista para realizar los comandos necesarios ")
         etiqueta_instruccion4.grid(row=14, column=0, sticky="w")
 
-        imagen = tk.PhotoImage(file="img/imagen 6.gif")
+        imagen = tk.PhotoImage(file=imagen_path6)
         etiqueta_imagen = tk.Label(marco, image=imagen)
         etiqueta_imagen.photo = imagen  # Importante para evitar que la imagen se elimine
         etiqueta_imagen.grid(row=15, column=0, pady=10)
@@ -111,7 +144,7 @@ class Frame6(tk.Frame):
         etiqueta_instruccion4 = tk.Label(marco, text="Para llegar a la Carpeta Prueba primero se debe llegar al escritorio, es por esto, que en una primera instancia, se realiza un “ls” \n para visualizar todos los contenidos del directorio actual y encontrar el escritorio")
         etiqueta_instruccion4.grid(row=17, column=0, sticky="w")
 
-        imagen = tk.PhotoImage(file="img/img7.gif")
+        imagen = tk.PhotoImage(file=imagen_path7)
         etiqueta_imagen = tk.Label(marco, image=imagen)
         etiqueta_imagen.photo = imagen  # Importante para evitar que la imagen se elimine
         etiqueta_imagen.grid(row=18, column=0, pady=10)
@@ -119,7 +152,7 @@ class Frame6(tk.Frame):
         etiqueta_instruccion9 = tk.Label(marco, text="Ya con el directorio “escritorio” encontrado, debemos ingresar a él, para realizar esto, se utiliza el comando “cd + nombre del directorio”,  por lo que \n en este  caso se utiliza: “cd Desktop”. Ya están dentro de este directorio, se vuelve a realizar un “ls” para comprobar que la carpeta que \n  buscamos se encuentra aquí.")
         etiqueta_instruccion9.grid(row=19, column=0, sticky="w")
 
-        imagen = tk.PhotoImage(file="img/img8.gif")
+        imagen = tk.PhotoImage(file=imagen_path8)
         etiqueta_imagen = tk.Label(marco, image=imagen)
         etiqueta_imagen.photo = imagen  # Importante para evitar que la imagen se elimine
         etiqueta_imagen.grid(row=20, column=0, pady=10)
@@ -127,7 +160,7 @@ class Frame6(tk.Frame):
         etiqueta_instruccion10 = tk.Label(marco, text="Ya con la carpeta detectada, se ingresa a esta, con el comando ya utilizado “cd” y para visualizar si en su interior se encuentra \n el archivo Dockerfile se utiliza el comando “ls” ")
         etiqueta_instruccion10.grid(row=21, column=0, sticky="w")
 
-        imagen = tk.PhotoImage(file="img/img9.gif")
+        imagen = tk.PhotoImage(file=imagen_path9)
         etiqueta_imagen = tk.Label(marco, image=imagen)
         etiqueta_imagen.photo = imagen  # Importante para evitar que la imagen se elimine
         etiqueta_imagen.grid(row=22, column=0, pady=10)
@@ -137,15 +170,15 @@ class Frame6(tk.Frame):
 
         text_instruccion2 = tk.Text(marco, wrap=tk.WORD, height=4, width=100)
         text_instruccion2.grid(row=24, column=0, sticky="w")
-        text_instruccion2.insert(tk.END, "docker build -t nombre -f Dockerfile .  ((se incluye el punto) Puedes copiar y modificar esta liena de comando)")
+        text_instruccion2.insert(tk.END, "docker build -t nombre .  ((se incluye el punto) Puedes copiar y modificar esta liena de comando)")
 
-        etiqueta_instruccion10 = tk.Label(marco, text="La variable “nombre” puede tomar cualquier nombre a elección y  será el nombre de la imagen a crear. La variable Dockerfile debe ser del \n  mismo nombre del archvito tipo Dockerfile que se tiene dentro de la carpeta (no es necesario que sea específicamente su nombre Dockerfile)")
+        etiqueta_instruccion10 = tk.Label(marco, text="La variable “nombre” puede tomar cualquier nombre a elección y  será el nombre de la imagen a crear.")
         etiqueta_instruccion10.grid(row=25, column=0, sticky="w")
 
         etiqueta_instruccion10 = tk.Label(marco, text="Se copia la línea de comando anteriormente mencionada y se pega dentro de Windows PowerShell, ejecutandola, generando así la imagen de Docker ")
         etiqueta_instruccion10.grid(row=26, column=0, sticky="w")
 
-        imagen = tk.PhotoImage(file="img/img10.gif")
+        imagen = tk.PhotoImage(file=imagen_path10)
         etiqueta_imagen = tk.Label(marco, image=imagen)
         etiqueta_imagen.photo = imagen  # Importante para evitar que la imagen se elimine
         etiqueta_imagen.grid(row=27, column=0, pady=10)
@@ -155,15 +188,15 @@ class Frame6(tk.Frame):
 
         text_instruccion3 = tk.Text(marco, wrap=tk.WORD, height=4, width=100)
         text_instruccion3.grid(row=29, column=0, sticky="w")
-        text_instruccion3.insert(tk.END, "docker run -d -p 8085:80 nombre  ( Puedes copiar y modificar esta liena de comando)")
+        text_instruccion3.insert(tk.END, "docker run -d -p 8085:80 --name nombre_container nombre  ( Puedes copiar y modificar esta liena de comando)")
 
-        etiqueta_instruccion10 = tk.Label(marco, text="La variable “nombre” debe ser del mismo nombre que la imagen creada anteriormente y los puertos utilizados en este caso “8085:80”,  pueden variar \n según necesidad.  ")
+        etiqueta_instruccion10 = tk.Label(marco, text="La variable “nombre_container” puede tomar cualquier nombre a elección y será el nombre del contenedor a crear. La variavle “nombre” \n debe ser del mismo nombre que la imagen creada anteriormente y los puertos utilizados en este caso “8085:80”,  pueden variar según necesidad.  ")
         etiqueta_instruccion10.grid(row=30, column=0, sticky="w")
 
         etiqueta_instruccion10 = tk.Label(marco, text="Se copiar la línea de comando anteriormente mencionada y se pega dentro de  Windows PowerShell y se ejecuta, generando y ejecutando el \n contenedor de Docker con “Apache2” ")
         etiqueta_instruccion10.grid(row=31, column=0, sticky="w")
 
-        imagen = tk.PhotoImage(file="img/img11.gif")
+        imagen = tk.PhotoImage(file=imagen_path11)
         etiqueta_imagen = tk.Label(marco, image=imagen)
         etiqueta_imagen.photo = imagen  # Importante para evitar que la imagen se elimine
         etiqueta_imagen.grid(row=32, column=0, pady=10)
@@ -174,7 +207,7 @@ class Frame6(tk.Frame):
         etiqueta_instruccion10 = tk.Label(marco, text="PASO 8: Ya para finalizar, se puede observar que el contenedor con “Apache2” que esta activo, abriendo un navegador e ingresar a “localhost + puerto” \n  que en este caso corresponde a  “localhost:8085”  ")
         etiqueta_instruccion10.grid(row=34, column=0, sticky="w")\
         
-        imagen = tk.PhotoImage(file="img/img12.gif")
+        imagen = tk.PhotoImage(file=imagen_path12)
         etiqueta_imagen = tk.Label(marco, image=imagen)
         etiqueta_imagen.photo = imagen  # Importante para evitar que la imagen se elimine
         etiqueta_imagen.grid(row=35, column=0, pady=10)
